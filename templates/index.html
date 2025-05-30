@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <h2>Enter Your Details</h2>
+    <form action="/predict" method="POST">
+        <div>
+        <label for = "age">Enter Age</label>
+        <input type="number" id = "age" name="age" placeholder="enter age" min="15" max="100" required>
+        </div>
+
+        <div class>
+            <label for="gender">What is your Gender?</label>
+            <div class="radio-group">
+            <label for="male">
+            <input type="radio" id="male" name="sex" value="1">
+            Male</label>
+            <label for="female">
+            <input type="radio" id="female" name="sex" value="0">
+            Female</label>
+            </div>
+        </div>
+
+        <div>
+            <label for="cp">Chest Pain Type?</label>
+            <select id="cp" name="cp" placeholder="type" required>
+                <option value="" disabled selected>Chest Pain Type</option>
+                <option value="0">Typical Angina</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non-Anginal Pain</option>
+                <option value="3">Asymptomatic</option>
+                </select>
+        </div>
+
+        <div>
+            <label for="rbps">Rest Blood Pressure (80-200)</label>
+            <input type="number" id="rbps" name="trestbps" placeholder="RestBP" min="80" max="200" step="1" required>
+        </div>
+
+        <div>
+            <label for="chol">Cholestrol Level (100-400)</label>
+            <input type="number" id="chol" name="chol" placeholder="Cholestrol" min="100" max="400" step="1" required>
+        </div>
+
+        <div>
+            <label for="fbps">Fasting Blood Pressure>120 </label>
+            <select id="fbps" name="fbs" placeholder="fastBP" required>
+                <option value = "">Select</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+                </select>
+        </div>
+
+        <div>
+            <label for="recg">Rest ECG</label>
+            <select id="recg" name="restecg" placeholder="RestECG" required>
+                <option value="">Select</option>
+                <option value="0">Normal</option>
+                <option value="1">ST-T Wave Abnormality</option>
+                <option value="2">Left Ventricular Hypertrophy</option>
+              </select>
+        </div>
+
+        <div>
+            <label for="thalach">Maximum Heart Rate Achieved:</label>
+            <input type="number" id="thalach" name="thalach" placeholder="Max Heart Rate" min="50" max="250" required>
+        </div>
+
+        <div>
+            <label for="exang">Exercise Induced Angina:</label>
+            <div class="radio-group">
+                <input type="radio" id="exangYes" name="exang" value="1" required>
+                <label for="exangYes">Yes</label>
+                <input type="radio" id="exangNo" name="exang" value="0" required>
+                <label for="exangNo">No</label>
+            </div>
+        </div>
+        <div>
+            <label for="oldpeak">Oldpeak (Depression Induced by Exercise Relative to Rest):</label>
+            <input type="number" id="oldpeak" name="oldpeak" placeholder="Oldpeak" min="0" max="6" step="0.1" required>
+        </div>
+
+        <div>
+            <label for="slope">Slope of the Peak Exercise ST Segment:</label>
+            <select id="slope" name="slope" required>
+                <option value="" disabled selected>Select Slope</option>
+                <option value="0">Up-sloping</option>
+                <option value="1">Flat</option>
+                <option value="2">Down-sloping</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="ca">Number of Major Vessels Colored by Fluoroscopy:</label>
+            <select id="ca" name="ca" required>
+                <option value="" disabled selected>Select number of vessels</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="thal">Thalassemia:</label>
+            <select id="thal" name="thal" required>
+                <option value="" disabled selected>Select Thalassemia</option>
+                <option value="3">Normal</option>
+                <option value="6">Fixed Defect</option>
+                <option value="7">Reversible Defect</option>
+            </select>
+        </div>
+        <div class="button">
+            <button type="submit">Predict Heart Disease</button>
+        </div>
+    </form>
+
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>

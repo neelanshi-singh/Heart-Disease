@@ -1,0 +1,85 @@
+body{
+    background-color: #dbcca1;
+}
+
+h1,h2{
+    text-align: center;
+    color: rgb(122, 7, 30);
+}
+
+form{
+    display: grid;
+    background-color: rgb(122, 7, 30);
+    align-items: center;
+    text-align: center;
+    margin:0 auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+select, input{
+    width: 200px;
+    text-align: center;
+    height: 20px;
+}
+label{
+    display: block;
+    color: #e0b1b1;
+    font-size: larger;
+}
+
+.radio-group {
+    display: inline-block; /* Keeps the group inline */
+    text-align: center;
+}
+
+.radio-group label {
+    display: inline-block; /* Keeps the labels inline with the radio buttons */
+    margin: 0; /* Removes extra margin */
+}
+
+input[type="radio"] {
+    display: inline-block; /* Ensure radio buttons are inline */
+    margin-right: 0 5px; /* Space between radio button and label */
+    vertical-align: middle;
+}
+
+
+input[type="radio"] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+input , select,input::placeholder{
+    background-color: #dbcca1;
+    color: rgb(122, 7, 30);
+}
+
+#male , #female{
+    display: inline;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    color: rgb(122, 7, 30);
+    background-color: #dbcca1;
+    margin: 20px;
+    height: 50px;
+    width: 150px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color: rgb(100, 3, 3);
+    color: #dbcca1;
+}
+
+button:active{
+    transform: translateY(2px);
+/* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); */
+}
